@@ -1,52 +1,31 @@
-function Schoenen(merk, maat) {
+let winkelwagen = [];
+let schoenen = [
+    ["Nike"] = [kleur = "zwart", maat = "40", voorraad = 5],
+    ["Adidas"] = [kleur = "wit", maat = "44", voorraad = 10],
+    ["Moncler"] = [kleur = "groen", maat = "45", voorraad = 2],
+    ["Dior"] = [kleur = "zwart", maat = "42", voorraad = 6],
+];
 
-    this.getMerk = function () {
-        return merk;
-    }
-
-    this.getMaat = function () {
-        return maat;
-    }
-
-    this.showDetails = function () {
-        console.log(`Schoenen: ${merk} maat: ${maat}.`);
-    }
-
+function voegProduct(item) {
+    if (schoenen.includes(item)) {
+        winkelwagen.push(schoenen[item]);
+    }   
 }
 
-function Voorraad(item, aantal) {
-    let artikel = item;
-    let voorraad = aantal;
-
-    this.getVoorraad = function () {
-        return voorraad;
-    }
-    this.getArtikel = function () {
-        return artikel;
-    }
-    this.showVoorraad = function () {
-        console.log(`De voorraad van: ${artikel} is ${voorraad}.`);
-    }
-    this.verlaagVoorraad = function () {
-        voorraad = voorraad - 1;
-    }
-
-    this.verhoogVoorraad = function () {
-        voorraad = voorraad + 1;
-    }
-
-    this.verhoogMeerdereVoorraad = function () {
-        voorraad = voorraad + 5;
-    }
-
-    this.verlaagMeerdereVoorraad = function () {
-        voorraad = voorraad - 5;
-    }
+function getAantalWinkelmand() {
+    console.log(winkelwagen.length);
+    return winkelwagen.length
 }
 
-document.getElementById('verstuurKnop').addEventListener('click', () => {
-    let merk = document.getElementById('schoenenMerk').value;
-    let maat = document.getElementById('schoenenMaat').value;
+function getVoorraad(item) {
+    if (schoenen.includes(item)) {
+        return schoenen[item].voorraad;
+    }   
+}
 
-    nieuweSchoenen
-})
+function getKleurMaat(item) {
+    if (schoenen.includes(item)) {
+        console.log(schoenen[item].kleur);
+        console.log(schoenen[item].maat);
+    }
+}
